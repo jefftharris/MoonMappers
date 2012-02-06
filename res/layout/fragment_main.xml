@@ -8,11 +8,13 @@
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/title" />
+        android:src="@drawable/title"
+        android:contentDescription="Title"
+        />
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_weight="1"
         >
@@ -26,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/image1"
+            android:contentDescription="Image to evaluate"
             />
         <TextView
             android:layout_width="match_parent"
