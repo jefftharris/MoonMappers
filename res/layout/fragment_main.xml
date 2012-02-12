@@ -20,17 +20,18 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="10dp"
+        android:padding="3dp"
         android:background="#3fffffff" 
         >
     
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_margin="3dp"
             android:layout_weight="1"
+            android:background="#7fffffff"
             android:orientation="vertical"
-            android:padding="3dp"
-            android:background="#7fffffff" >
+            android:padding="3dp" >
     
             <TextView
                 android:layout_width="match_parent"
@@ -59,44 +60,46 @@
                 android:textSize="16dp"
                 android:textStyle="normal" />
         </LinearLayout>
-    
+
         <TableLayout 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
+            android:layout_margin="3dp"
+            android:padding="3dp"
+            android:background="#7fffffff"
             >
             <TableRow>
     
-                <Button
+                <RadioButton
                     android:id="@+id/crater_perfect"
                     android:layout_width="0dp"
                     android:layout_gravity="fill"
                     android:layout_weight=".5"
                     android:scaleType="fitCenter"
-                    android:text="It&apos;s perfect!"
+                    android:text="Perfect!"
                     />
     
-                <Button
+                <RadioButton
                     android:id="@+id/crater_worn"
                     android:layout_width="0dp"
                     android:layout_gravity="fill"
                     android:layout_weight=".5"
                     android:scaleType="fitCenter"
-                    android:text="A little worn" />
+                    android:text="Worn" />
     
             </TableRow>
             <TableRow>
-                <Button
+                <RadioButton
                     android:id="@+id/crater_wear_tear"
-                    android:text="Lot's of wear &amp; tear"
+                    android:text="Very Worn"
                     android:layout_gravity="fill" 
                     android:scaleType="fitCenter"
                     android:layout_weight=".5" 
                     android:layout_width="0dp" 
                     />
-                <Button
+                <RadioButton
                     android:id="@+id/crater_none"
-                    android:text="That's a crater?"
+                    android:text="No Crater"
                     android:layout_gravity="fill" 
                     android:scaleType="fitCenter"
                     android:layout_weight=".5" 
@@ -115,6 +118,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:orientation="vertical"
             android:background="#7fffffff"
             android:padding="3dp"
