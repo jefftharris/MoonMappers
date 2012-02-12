@@ -2,78 +2,146 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@drawable/widget_background"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/title"
+        android:adjustViewBounds="true"
         android:contentDescription="Title"
-        />
+        android:scaleType="fitCenter"
+        android:src="@drawable/title" />
     
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="#3fffffff" 
         >
-        <TextView 
+    
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="3dp"
+            android:background="#7fffffff" >
+    
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="How eroded is this crater?"
+                android:textColor="#000000"
+                android:textSize="16dp" 
+                android:textStyle="normal"/>
+    
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:contentDescription="Image to evaluate"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/image1" />
+    
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Click the best matching picture"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="normal" />
+        </LinearLayout>
+    
+        <TableLayout 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="How eroded is this crater?"
-            android:gravity="center"
+            android:paddingTop="10dp"
+            >
+            <TableRow>
+    
+                <Button
+                    android:id="@+id/crater_perfect"
+                    android:layout_width="0dp"
+                    android:layout_gravity="fill"
+                    android:layout_weight=".5"
+                    android:scaleType="fitCenter"
+                    android:text="It&apos;s perfect!"
+                    />
+    
+                <Button
+                    android:id="@+id/crater_worn"
+                    android:layout_width="0dp"
+                    android:layout_gravity="fill"
+                    android:layout_weight=".5"
+                    android:scaleType="fitCenter"
+                    android:text="A little worn" />
+    
+            </TableRow>
+            <TableRow>
+                <Button
+                    android:id="@+id/crater_wear_tear"
+                    android:text="Lot's of wear &amp; tear"
+                    android:layout_gravity="fill" 
+                    android:scaleType="fitCenter"
+                    android:layout_weight=".5" 
+                    android:layout_width="0dp" 
+                    />
+                <Button
+                    android:id="@+id/crater_none"
+                    android:text="That's a crater?"
+                    android:layout_gravity="fill" 
+                    android:scaleType="fitCenter"
+                    android:layout_weight=".5" 
+                    android:layout_width="0dp" 
+                    />
+            </TableRow>
+        </TableLayout>
+        
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
             />
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#7fffffff"
+            android:padding="3dp"
+            >
+            <TextView
+                android:id="@+id/session"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Craters marked this session: 123"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:id="@+id/user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User - jeffh"
+                android:textColor="#000000"
+                />
+        </LinearLayout>
+    
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/image1"
-            android:contentDescription="Image to evaluate"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Click the best matching picture"
-            android:gravity="center"
+            android:adjustViewBounds="true"
+            android:contentDescription="CosmoQuest"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cosmo_quest" 
             />
     </LinearLayout>
-    
-    <TableLayout 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <TableRow>
-            <Button
-                android:text="It's perfect!"
-                android:drawableLeft="@drawable/crater_perfect"
-                android:layout_gravity="center_vertical"
-                android:layout_weight=".5"
-                android:layout_width="0dp" 
-                />
-            <Button
-                android:text="A little worn"
-                android:drawableLeft="@drawable/crater_worn"
-                android:layout_gravity="center_vertical" 
-                android:layout_weight=".5" 
-                android:layout_width="0dp" 
-                />
-        </TableRow>
-        <TableRow>
-            <Button
-                android:text="Lot's of wear &amp; tear"
-                android:drawableLeft="@drawable/crater_wear_tear"
-                android:layout_gravity="center_vertical" 
-                android:layout_weight=".5" 
-                android:layout_width="0dp" 
-                />
-            <Button
-                android:text="That's a crater?"
-                android:drawableLeft="@drawable/crater_none"
-                android:layout_gravity="center_vertical" 
-                android:layout_weight=".5" 
-                android:layout_width="0dp" 
-                />
-        </TableRow>
-    </TableLayout>
-
 </LinearLayout>
