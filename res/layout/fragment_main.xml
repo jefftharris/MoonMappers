@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:background="@drawable/widget_background"
-    android:padding="10dp">
+    android:padding="6dp">
 
     <ImageView
         android:id="@+id/imageView1"
@@ -20,14 +20,13 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="3dp"
+        android:padding="6dp"
         android:background="#3fffffff" 
         >
     
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="3dp"
             android:layout_weight="1"
             android:background="#7fffffff"
             android:orientation="vertical"
@@ -64,7 +63,6 @@
         <TableLayout 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:padding="3dp"
             android:background="#7fffffff"
             >
@@ -76,6 +74,8 @@
                     android:layout_gravity="fill"
                     android:layout_weight=".5"
                     android:scaleType="fitCenter"
+                    android:textColor="#000000"
+                    android:drawablePadding="3dp"
                     android:text="Perfect!"
                     />
     
@@ -85,6 +85,8 @@
                     android:layout_gravity="fill"
                     android:layout_weight=".5"
                     android:scaleType="fitCenter"
+                    android:textColor="#000000"
+                    android:drawablePadding="3dp"
                     android:text="Worn" />
     
             </TableRow>
@@ -96,6 +98,8 @@
                     android:scaleType="fitCenter"
                     android:layout_weight=".5" 
                     android:layout_width="0dp" 
+                    android:textColor="#000000"
+                    android:drawablePadding="3dp"
                     />
                 <RadioButton
                     android:id="@+id/crater_none"
@@ -104,6 +108,8 @@
                     android:scaleType="fitCenter"
                     android:layout_weight=".5" 
                     android:layout_width="0dp" 
+                    android:textColor="#000000"
+                    android:drawablePadding="3dp"
                     />
             </TableRow>
         </TableLayout>
@@ -118,7 +124,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:orientation="vertical"
             android:background="#7fffffff"
             android:padding="3dp"
