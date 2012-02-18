@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
-        android:contentDescription="Title"
+        android:contentDescription="@string/title"
         android:scaleType="fitCenter"
         android:src="@drawable/title" />
     
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:gravity="center"
-                android:text="How eroded is this crater?"
+                android:text="@string/question"
                 android:textColor="#000000"
                 android:textSize="16dp" 
                 android:textStyle="normal"/>
@@ -59,7 +59,7 @@
                         android:scaleType="fitCenter"
                         android:textColor="#000000"
                         android:drawablePadding="3dp"
-                        android:text="Perfect!"
+                        android:text="@string/perfect"
                         />
         
                     <RadioButton
@@ -70,13 +70,13 @@
                         android:scaleType="fitCenter"
                         android:textColor="#000000"
                         android:drawablePadding="3dp"
-                        android:text="Worn" />
+                        android:text="@string/worn" />
         
                 </TableRow>
                 <TableRow>
                     <RadioButton
                         android:id="@+id/crater_wear_tear"
-                        android:text="Very Worn"
+                        android:text="@string/very_worn"
                         android:layout_gravity="fill" 
                         android:scaleType="fitCenter"
                         android:layout_weight=".5" 
@@ -86,7 +86,7 @@
                         />
                     <RadioButton
                         android:id="@+id/crater_none"
-                        android:text="No Crater"
+                        android:text="@string/no_crater"
                         android:layout_gravity="fill" 
                         android:scaleType="fitCenter"
                         android:layout_weight=".5" 
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@id/choices"
                 android:gravity="center"
-                android:text="Click the best matching picture"
+                android:text="@string/click"
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="normal" />
@@ -114,7 +114,7 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/question"
                 android:layout_above="@id/click"
-                android:contentDescription="Image to evaluate"
+                android:contentDescription="@string/image"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/image1" />
@@ -126,7 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="Submit" />
+            android:text="@string/submit" />
         
         <LinearLayout
             android:layout_width="match_parent"
@@ -139,14 +139,14 @@
                 android:id="@+id/session"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Craters marked this session: 123"
+                android:text="@string/num_marked"
                 android:textColor="#000000"
                 />
             <TextView
                 android:id="@+id/user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User - jeffh"
+                android:text="@string/user"
                 android:textColor="#000000"
                 />
         </LinearLayout>
@@ -155,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:contentDescription="CosmoQuest"
+            android:contentDescription="@string/cosmo_quest"
             android:scaleType="fitCenter"
             android:src="@drawable/cosmo_quest" 
             />
