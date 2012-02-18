@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:padding="6dp" >
+    
+    <RelativeLayout
+        android:id="@+id/signin" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="6dp"
+        android:background="#7fffffff" 
+        >
+        <TextView 
+            android:id="@+id/cosmo_quest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="CosmoQuest Sign-in"
+            android:textColor="#000000"
+            android:textSize="24dp" 
+            />
+        
+        <TableLayout
+            android:id="@+id/fields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cosmo_quest"
+            android:stretchColumns="1"
+            >
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User:"
+                    android:textColor="#000000"
+                    />
+
+                <EditText
+                    android:id="@+id/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textNoSuggestions"
+                    android:textColor="#000000" />
+
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password:"
+                    android:textColor="#000000"
+                    />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="#000000" />
+
+            </TableRow>
+        </TableLayout>
+        
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fields"
+            android:text="Login"
+            android:textColor="#000000"
+            />
+    </RelativeLayout>
+    
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/signin"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/title"
+        android:scaleType="fitCenter"
+        android:src="@drawable/title" />
+    
+    <ImageView
+        android:id="@+id/cosmo_quest_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/signin"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/cosmo_quest"
+        android:scaleType="fitCenter"
+        android:src="@drawable/cosmo_quest" />
+
+</RelativeLayout>
