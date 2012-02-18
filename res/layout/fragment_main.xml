@@ -24,96 +24,102 @@
         android:background="#3fffffff" 
         >
     
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="#7fffffff"
-            android:orientation="vertical"
             android:padding="3dp" >
-    
+
             <TextView
+                android:id="@+id/question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:gravity="center"
                 android:text="How eroded is this crater?"
                 android:textColor="#000000"
                 android:textSize="16dp" 
                 android:textStyle="normal"/>
     
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:contentDescription="Image to evaluate"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:src="@drawable/image1" />
-    
-            <TextView
+            <TableLayout
+                android:id="@+id/choices"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                >
+                <TableRow>
+        
+                    <RadioButton
+                        android:id="@+id/crater_perfect"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:layout_weight=".5"
+                        android:scaleType="fitCenter"
+                        android:textColor="#000000"
+                        android:drawablePadding="3dp"
+                        android:text="Perfect!"
+                        />
+        
+                    <RadioButton
+                        android:id="@+id/crater_worn"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:layout_weight=".5"
+                        android:scaleType="fitCenter"
+                        android:textColor="#000000"
+                        android:drawablePadding="3dp"
+                        android:text="Worn" />
+        
+                </TableRow>
+                <TableRow>
+                    <RadioButton
+                        android:id="@+id/crater_wear_tear"
+                        android:text="Very Worn"
+                        android:layout_gravity="fill" 
+                        android:scaleType="fitCenter"
+                        android:layout_weight=".5" 
+                        android:layout_width="0dp" 
+                        android:textColor="#000000"
+                        android:drawablePadding="3dp"
+                        />
+                    <RadioButton
+                        android:id="@+id/crater_none"
+                        android:text="No Crater"
+                        android:layout_gravity="fill" 
+                        android:scaleType="fitCenter"
+                        android:layout_weight=".5" 
+                        android:layout_width="0dp" 
+                        android:textColor="#000000"
+                        android:drawablePadding="3dp"
+                        />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/click"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/choices"
                 android:gravity="center"
                 android:text="Click the best matching picture"
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="normal" />
-        </LinearLayout>
-
-        <TableLayout 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:background="#7fffffff"
-            >
-            <TableRow>
-    
-                <RadioButton
-                    android:id="@+id/crater_perfect"
-                    android:layout_width="0dp"
-                    android:layout_gravity="fill"
-                    android:layout_weight=".5"
-                    android:scaleType="fitCenter"
-                    android:textColor="#000000"
-                    android:drawablePadding="3dp"
-                    android:text="Perfect!"
-                    />
-    
-                <RadioButton
-                    android:id="@+id/crater_worn"
-                    android:layout_width="0dp"
-                    android:layout_gravity="fill"
-                    android:layout_weight=".5"
-                    android:scaleType="fitCenter"
-                    android:textColor="#000000"
-                    android:drawablePadding="3dp"
-                    android:text="Worn" />
-    
-            </TableRow>
-            <TableRow>
-                <RadioButton
-                    android:id="@+id/crater_wear_tear"
-                    android:text="Very Worn"
-                    android:layout_gravity="fill" 
-                    android:scaleType="fitCenter"
-                    android:layout_weight=".5" 
-                    android:layout_width="0dp" 
-                    android:textColor="#000000"
-                    android:drawablePadding="3dp"
-                    />
-                <RadioButton
-                    android:id="@+id/crater_none"
-                    android:text="No Crater"
-                    android:layout_gravity="fill" 
-                    android:scaleType="fitCenter"
-                    android:layout_weight=".5" 
-                    android:layout_width="0dp" 
-                    android:textColor="#000000"
-                    android:drawablePadding="3dp"
-                    />
-            </TableRow>
-        </TableLayout>
         
+            <ImageView
+                android:id="@+id/picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/question"
+                android:layout_above="@id/click"
+                android:contentDescription="Image to evaluate"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/image1" />
+    
+        </RelativeLayout>
+
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
