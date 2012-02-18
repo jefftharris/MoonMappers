@@ -4,14 +4,18 @@
     <string name="app_name">MoonMappers</string>
     <string name="click">Click the best matching picture</string>
     <string name="cosmo_quest">CosmoQuest</string>
+    <string name="cosmo_quest_signin">CosmoQuest Sign-in</string>
     <string name="image">Image</string>
+    <string name="login">Login</string>
     <string name="no_crater">No Crater</string>
     <string name="num_marked">Craters marked this session: %d</string>
+    <string name="password_prompt">Password:</string>
     <string name="perfect">Perfect!</string>
     <string name="question">How eroded is this crater?</string>
     <string name="submit">Submit</string>
     <string name="title">Title</string>
     <string name="user">User - %s</string>
+    <string name="user_prompt">User:</string>
     <string name="very_worn">Very Worn</string>
     <string name="worn">Worn</string>
 

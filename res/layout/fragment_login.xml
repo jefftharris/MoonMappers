@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:gravity="center"
-            android:text="CosmoQuest Sign-in"
+            android:text="@string/cosmo_quest_signin"
             android:textColor="#000000"
             android:textSize="24dp" 
             />
@@ -35,7 +35,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="User:"
+                    android:text="@string/user_prompt"
                     android:textColor="#000000"
                     />
 
@@ -51,7 +51,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Password:"
+                    android:text="@string/password_prompt"
                     android:textColor="#000000"
                     />
 
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/fields"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="#000000"
             />
     </RelativeLayout>
