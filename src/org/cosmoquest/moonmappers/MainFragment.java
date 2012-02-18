@@ -34,6 +34,15 @@ public class MainFragment extends Fragment
         setButtonImg(view, R.drawable.crater_wear_tear, R.id.crater_wear_tear);
         setButtonImg(view, R.drawable.crater_none, R.id.crater_none);
 
+        final Button submit = (Button)view.findViewById(R.id.submit);
+        submit.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                submit();
+            }
+        });
+
         View.OnClickListener rbListener = new View.OnClickListener()
         {
             public void onClick(View v)
@@ -47,6 +56,7 @@ public class MainFragment extends Fragment
                         btn.setChecked(false);
                     }
                 }
+                submit.setEnabled(true);
             }
         };
         for (int id : itsChoices) {
@@ -55,6 +65,11 @@ public class MainFragment extends Fragment
         }
 
         return view;
+    }
+
+    private void submit()
+    {
+
     }
 
     private void setButtonImg(View root, int drawId, int buttonId)
