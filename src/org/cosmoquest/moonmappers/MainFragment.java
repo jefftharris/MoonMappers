@@ -12,6 +12,8 @@ import android.widget.CompoundButton;
 
 public class MainFragment extends Fragment
 {
+    private View itsView;
+
     private int[] itsChoices = new int[]
         { R.id.crater_perfect, R.id.crater_worn, R.id.crater_wear_tear,
           R.id.crater_none };
@@ -26,15 +28,14 @@ public class MainFragment extends Fragment
                              ViewGroup container,
                              Bundle savedInstanceState)
     {
-        final View view = inflater.inflate(R.layout.fragment_main, container,
-                                           false);
+        itsView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        setButtonImg(view, R.drawable.crater_perfect, R.id.crater_perfect);
-        setButtonImg(view, R.drawable.crater_worn, R.id.crater_worn);
-        setButtonImg(view, R.drawable.crater_wear_tear, R.id.crater_wear_tear);
-        setButtonImg(view, R.drawable.crater_none, R.id.crater_none);
+        setButtonImg(itsView, R.drawable.crater_perfect, R.id.crater_perfect);
+        setButtonImg(itsView, R.drawable.crater_worn, R.id.crater_worn);
+        setButtonImg(itsView, R.drawable.crater_wear_tear, R.id.crater_wear_tear);
+        setButtonImg(itsView, R.drawable.crater_none, R.id.crater_none);
 
-        final Button submit = (Button)view.findViewById(R.id.submit);
+        final Button submit = (Button)itsView.findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
@@ -52,7 +53,7 @@ public class MainFragment extends Fragment
                 for (int id : itsChoices) {
                     if (id != itsCurrChoice) {
                         CompoundButton btn =
-                            (CompoundButton)view.findViewById(id);
+                            (CompoundButton)itsView.findViewById(id);
                         btn.setChecked(false);
                     }
                 }
@@ -60,11 +61,11 @@ public class MainFragment extends Fragment
             }
         };
         for (int id : itsChoices) {
-            View btn = view.findViewById(id);
+            View btn = itsView.findViewById(id);
             btn.setOnClickListener(rbListener);
         }
 
-        return view;
+        return itsView;
     }
 
     private void submit()
