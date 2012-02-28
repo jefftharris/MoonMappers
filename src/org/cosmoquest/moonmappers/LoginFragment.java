@@ -1,5 +1,6 @@
 package org.cosmoquest.moonmappers;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -18,6 +19,35 @@ public class LoginFragment extends Fragment
 
     private View itsView;
     private AsyncTask<LoginInfo, Void, LoginResult> itsTask;
+    private ActivityProvider itsActProvider;
+
+    public static class LoginResult
+    {
+        public final String itsUser;
+        public final Throwable itsError;
+
+        public LoginResult(String user, Throwable error)
+        {
+            itsUser = user;
+            itsError = error;
+        }
+    }
+
+    public interface ActivityProvider
+    {
+        public void handleLoginComplete(LoginResult result);
+    }
+
+    /* (non-Javadoc)
+     * @see android.support.v4.app.Fragment#onAttach(android.app.Activity)
+     */
+    @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+        itsActProvider = (ActivityProvider)activity;
+    }
+
 
     /* (non-Javadoc)
      * @see android.support.v4.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
@@ -67,7 +97,7 @@ public class LoginFragment extends Fragment
         login.setEnabled(true);
 
         if (result.itsError == null) {
-
+            itsActProvider.handleLoginComplete(result);
         } else {
             TextView tv = (TextView)itsView.findViewById(R.id.error);
             String error = getString(R.string.login_error,
@@ -90,16 +120,6 @@ public class LoginFragment extends Fragment
         }
     }
 
-    private static class LoginResult
-    {
-        public final Throwable itsError;
-
-        public LoginResult(Throwable error)
-        {
-            itsError = error;
-        }
-    }
-
     private class LoginTask extends AsyncTask<LoginInfo, Void, LoginResult>
     {
         @Override
@@ -113,10 +133,10 @@ public class LoginFragment extends Fragment
                 if (info.itsPassword.equals("bad")) {
                     throw new Exception("Bad password");
                 }
-                return new LoginResult(null);
+                return new LoginResult(info.itsUser, null);
             }
             catch (Throwable e) {
-                return new LoginResult(e);
+                return new LoginResult(info.itsUser, e);
             }
         }
 

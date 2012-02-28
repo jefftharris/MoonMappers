@@ -1,5 +1,6 @@
 package org.cosmoquest.moonmappers;
 
+import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Bundle;
@@ -9,16 +10,44 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 public class MainFragment extends Fragment
 {
     private View itsView;
+    private ActivityProvider itsActProvider;
 
     private int[] itsChoices = new int[]
         { R.id.crater_perfect, R.id.crater_worn, R.id.crater_wear_tear,
           R.id.crater_none };
     private int itsCurrChoice = -1;
     // TODO: save/restore curr choice in bundle
+
+
+    public interface ActivityProvider
+    {
+        public String getCurrUser();
+    }
+
+    public static MainFragment newInstance()
+    {
+        MainFragment frag = new MainFragment();
+        Bundle args = new Bundle();
+        frag.setArguments(args);
+        return frag;
+    }
+
+
+    /* (non-Javadoc)
+     * @see android.support.v4.app.Fragment#onAttach(android.app.Activity)
+     */
+    @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+        itsActProvider = (ActivityProvider)activity;
+    }
+
 
     /* (non-Javadoc)
      * @see android.support.v4.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
@@ -65,6 +94,9 @@ public class MainFragment extends Fragment
             btn.setOnClickListener(rbListener);
         }
 
+        TextView tv = (TextView)itsView.findViewById(R.id.user);
+        String str = getString(R.string.user, itsActProvider.getCurrUser());
+        tv.setText(str);
         return itsView;
     }
 
