@@ -7,6 +7,7 @@
     <string name="cosmo_quest_signin">CosmoQuest Sign-in</string>
     <string name="image">Image</string>
     <string name="login">Login</string>
+    <string name="login_error">Login failure: %s</string>
     <string name="no_crater">No Crater</string>
     <string name="num_marked">Craters marked this session: %d</string>
     <string name="password_prompt">Password:</string>
