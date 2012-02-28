@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,9 @@ public class LoginFragment extends Fragment
     private static String TAG = "LoginFragment";
 
     private View itsView;
+    private TextView itsUser;
+    private TextView itsPassword;
+    private Button itsLogin;
     private AsyncTask<LoginInfo, Void, LoginResult> itsTask;
     private ActivityProvider itsActProvider;
 
@@ -60,8 +65,34 @@ public class LoginFragment extends Fragment
     {
         itsView = inflater.inflate(R.layout.fragment_login, container, false);
 
-        Button login = (Button)itsView.findViewById(R.id.login);
-        login.setOnClickListener(this);
+        itsUser = (TextView)itsView.findViewById(R.id.user);
+        itsPassword = (TextView)itsView.findViewById(R.id.password);
+
+        itsLogin = (Button)itsView.findViewById(R.id.login);
+        itsLogin.setOnClickListener(this);
+
+        TextWatcher loginWatcher = new TextWatcher()
+        {
+            public void afterTextChanged(Editable s)
+            {
+                boolean haveValues =
+                    (itsUser.length() > 0) && (itsPassword.length() > 0);
+                itsLogin.setEnabled(haveValues);
+            }
+
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after)
+            {
+            }
+
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count)
+            {
+            }
+        };
+        itsUser.addTextChangedListener(loginWatcher);
+        itsPassword.addTextChangedListener(loginWatcher);
+        loginWatcher.afterTextChanged(null);
 
         return itsView;
     }
@@ -82,13 +113,11 @@ public class LoginFragment extends Fragment
             itsTask.cancel(true);
         }
 
-        TextView user = (TextView)itsView.findViewById(R.id.user);
-        TextView password = (TextView)itsView.findViewById(R.id.password);
         View error = itsView.findViewById(R.id.error);
         error.setVisibility(View.GONE);
-        itsTask =
-            new LoginTask().execute(new LoginInfo(user.getText().toString(),
-                                                  password.getText().toString()));
+        LoginInfo info = new LoginInfo(itsUser.getText().toString(),
+                                       itsPassword.getText().toString());
+        itsTask = new LoginTask().execute(info);
         // TODO: handle onPause and resume
         // TODO: handle screen rotates
     }
